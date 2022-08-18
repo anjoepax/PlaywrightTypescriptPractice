@@ -1,0 +1,33 @@
+{
+  "name": "playwrighttypescript",
+  "version": "1.0.0",
+  "description": "playwright practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
+  },
+  "author": "anthony.manigos",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "jest": "^28.1.3",
+    "jest-playwright-preset": "^2.0.0",
+    "playwright": "^1.25.0",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.7.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testTimeout": 120000
+  }
+}
