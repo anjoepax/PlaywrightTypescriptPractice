@@ -8,7 +8,8 @@ describe('Handling Dropdown Test', () => {
 
     beforeAll(async () => {
         browser = await chromium.launch({
-            headless: false
+            headless: false,
+            slowMo: 500
         });
         context = await browser.newContext();
         page = await context.newPage();
@@ -31,6 +32,20 @@ describe('Handling Dropdown Test', () => {
             {value:"bt"},
             {index: 8}
         ])
+    })
+
+
+    test('Count of all values available in dropdown', async () => {
+        const language = await page.$$("#lang option")
+        console.log(language.length)
+    })
+
+
+    test('Get selected text', async () => {
+        await page.selectOption("#country", "India")
+        const country = await page.$eval<string, HTMLSelectElement>("#country", ele => ele.value)
+        console.log(country)
+        expect(country).toBe("India")
     })
 
     afterAll(async () => {
